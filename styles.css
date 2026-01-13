@@ -1,3 +1,24 @@
+/* Color Palette */
+/* SPACE
+#3B0270, #6F00FF, #E9B3FB, #FFF1F1
+
+UI
+#8CE4FF
+
+PLANET
+#91C6BC, #4B9DA9, #F6F3C2, #E37434 */
+
+
 body {
-    background-color: cadetblue;
+    max-width: 1200px;
+}
+
+.banner {
+    max-width: 1200px;
+    max-height: 250px;
+}
+
+main section ul li{
+    list-style-type: none;
+    padding-left: 0;
 }
