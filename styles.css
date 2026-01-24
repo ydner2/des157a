@@ -12,6 +12,7 @@ PLANET
 /* generalstuff */
 body {
     max-width: 1200px;
+    max-height: 700px;
     margin: 0;
     background-color: #110020;
 }
@@ -20,6 +21,7 @@ header {
     display: block;
     max-width: 1200px;
     height: 384px;
+    cursor: pointer;
 }
 
 h2{
@@ -39,6 +41,7 @@ header{
     display: flex;
     flex-direction: column;
     background-color: #3B0270;
+    contain: content;
 }
 
 #mobileBackgroundElements {
@@ -81,7 +84,31 @@ h1{
     transform: rotate(-47deg);
 
     position: absolute;
-    left: 20%
+    left: 20%;
+
+    animation: astronautanimationmobile 10s ease-in-out infinite;
+}
+
+@keyframes astronautanimationmobile{
+        0%{left: 20%;}
+        50%{left: 25%;}
+        100%{left: 20%;}
+    }
+
+#spaceship{
+    width: 100px;
+    height: 100px;
+    background: url(images/rocket.png) no-repeat;
+    transform: rotate(-47deg);
+
+    position: absolute;
+    top: 121%;
+    left: 50%
+}
+
+header:hover #spaceship, header:active #spaceship{
+    top: -40%;
+    transition: 3s ease-in;
 }
 
 /* main content */
@@ -145,6 +172,7 @@ main section ul li a:hover{
 
 footer{
     background: #3B0270;
+    padding: 20px;
 }
 
 footer p{
@@ -158,7 +186,7 @@ footer p{
     letter-spacing: 7.04px;  
 }
 
-footer #contact{
+footer #contact a{
         color: #E9B3FB;
         font-family: Gruppo;
         font-size: 24px;
@@ -166,6 +194,7 @@ footer #contact{
         font-weight: 400;
         line-height: normal;
         text-decoration: underline;
+        letter-spacing: 0;
     }
 
 #footerAstronaut{
@@ -173,12 +202,23 @@ footer #contact{
     height: 75px;
     transform: rotate(-23deg);
     background: url(images/astronautsmall.png) no-repeat;
+
+    transition: transform 3s ease-in-out;
+}
+
+#footerAstronaut:hover, #footerAstronaut:active{
+    transform: rotate(-180deg);
+    cursor: pointer;
 }
 
 
 /* desktop design */
 
 @media (min-width: 600px){
+
+    body{
+    margin: auto;
+    }
 
     /* header stuff */
     header{
@@ -205,6 +245,7 @@ footer #contact{
     h1{
         position: absolute;
         left: 9%;
+        font-size: 96px;
     }
 
     /* header moving stuff */
@@ -214,6 +255,19 @@ footer #contact{
         top: 6%;
 
         background: url(images/astronautsmall.png) no-repeat;
+
+        /* transition-duration: 10s;
+        transition-timing-function: ease; */
+
+        /* Google Search AI helped me learn that I cannot use the transitions like above to get the infinite effects, I had to use keyframes. It showed an example and I wrote my own code after reviewing the challenges. */
+
+        animation: astronautanimation 10s ease-in-out infinite;
+    }
+
+    @keyframes astronautanimation{
+        0%{left: 80%; top: 6%;}
+        50%{left: 78%; top: 12%;}
+        100%{left: 80%}
     }
 
     /* main stuff */
@@ -227,14 +281,65 @@ footer #contact{
         gap: 20px;
     }
 
-    main .emptycolumns{
+    main #emptycolumn{
         flex: 2;
+        background: url(images/ring.png) no-repeat;
+        background-position: center;
+        display: flex;
+        position: relative;
     }
+
+    main section ul li a{
+        margin: 23px;
+    }
+    
+    main #emptycolumn:hover{
+        cursor: pointer;
+        rotate: 360deg;
+        transition: rotate 3s ease;
+    }
+
+    main #emptycolumn #planet{
+        background: url(images/planet.png) no-repeat;
+        flex: 1;
+        transform: scale(.5);
+        background-position: center;
+
+        /* I used chat-GPT here to find out why my image was being cut on the sides. The contain element helped. */
+        background-size: contain;
+
+        transition-duration: 5s;
+        transition-property: transform;
+        transition-timing-function: ease;
+    }
+
+    main #emptycolumn:hover #planet{
+        transform: scale(1.2);
+        background-position: center;
+    }
+
+    main #ring{
+        background: url(images/ring.png) no-repeat;
+    }
+
 
     /* footer stuff */
 
     footer{
         display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    footer p{
+    color: #FFF1F1;
+    font-family: Gruppo;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 7.04px;
     }
 
 }
