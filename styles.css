@@ -9,16 +9,232 @@ PLANET
 #91C6BC, #4B9DA9, #F6F3C2, #E37434 */
 
 
+/* generalstuff */
 body {
     max-width: 1200px;
+    margin: 0;
+    background-color: #110020;
 }
 
-.banner {
+header {
+    display: block;
     max-width: 1200px;
-    max-height: 250px;
+    height: 384px;
+}
+
+h2{
+    margin: 0;
 }
 
 main section ul li{
     list-style-type: none;
     padding-left: 0;
+}
+
+/* mobile design */
+
+/* header */
+
+header{
+    display: flex;
+    flex-direction: column;
+    background-color: #3B0270;
+}
+
+#mobileBackgroundElements {
+    width: 100%;
+    height: 132px;
+    background: url(images/spacemobile.jpg) no-repeat;
+}
+
+h1{
+    margin: 0;
+    color: #FFF1F1;
+    font-family: Gruppo;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 13.44px;  
+    
+    margin-left: 10px;
+}
+
+.headerh2{
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 8.8px;
+
+    margin-left: 10px;
+} 
+
+/* header moving elements */
+
+#astronaut{
+    width: 100px;
+    height: 100px;
+    background: url(images/astronaut.png) no-repeat;
+    transform: rotate(-47deg);
+
+    position: absolute;
+    left: 20%
+}
+
+/* main content */
+
+main section{
+    border-right: 2px solid #8CE4FF;
+    border-bottom: 8px solid #8CE4FF;
+    background: #000;
+}
+
+main h2{
+    color: #8CE4FF;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+main section{
+    margin: 5%;
+}
+
+main section ul{
+    padding-left: 0;
+}
+
+main section ul li a{
+    display: block;
+    text-decoration: none;
+    color: #3B0270;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    padding: 4px;
+    margin: 24px;
+
+    background: #8CE4FF;
+    box-shadow: 0 4px 4px 0 rgba(140, 228, 255, 0.50);
+}
+
+main section ul li a:hover{
+    color: #FFF1F1;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    box-shadow: 0 4px 4px 0 #FFF;
+    background: #000;
+}
+
+
+/* mobile footer stuff */
+
+footer{
+    background: #3B0270;
+}
+
+footer p{
+    margin: 0;
+    color: #FFF1F1;
+    font-family: Gruppo;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 7.04px;  
+}
+
+footer #contact{
+        color: #E9B3FB;
+        font-family: Gruppo;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: underline;
+    }
+
+#footerAstronaut{
+    width: 75px;
+    height: 75px;
+    transform: rotate(-23deg);
+    background: url(images/astronautsmall.png) no-repeat;
+}
+
+
+/* desktop design */
+
+@media (min-width: 600px){
+
+    /* header stuff */
+    header{
+        background: url(images/space.jpg) no-repeat;
+        display: block;
+        height: 224px;
+        position: relative;
+    }
+
+    #mobileBackgroundElements{
+        display: none;
+    }
+
+    .headerh2{ 
+        background: rgba(17, 0, 32, 0.60);
+        padding: 0 4px 0 4px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        margin-left: 0;
+    }
+
+    h1{
+        position: absolute;
+        left: 9%;
+    }
+
+    /* header moving stuff */
+    #astronaut{
+        transform: rotate(40deg);
+        left: 85%;
+        top: 6%;
+
+        background: url(images/astronautsmall.png) no-repeat;
+    }
+
+    /* main stuff */
+    main{
+        display: flex;
+    }
+
+    main section{
+        flex: 1;
+        margin: 0;
+        gap: 20px;
+    }
+
+    main .emptycolumns{
+        flex: 2;
+    }
+
+    /* footer stuff */
+
+    footer{
+        display: flex;
+    }
+
 }
