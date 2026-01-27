@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 2</title>
+</head>
+<body>
+    <h1>Experiment 2</h1>
+    <h2>Please open the console to see the functionality of the exercise.</h2>
+
+    <div class="noselection"></div>
+    <div class="numbers"></div>
+
+    <script>
+        //I want my script to prompt the user for a selected color and color relationship. The program will take the color and change the background to that color and then write a paragraph about the color relationship. It will change the color of the text to the selected color relationship. It also tells you what the specific colors displayed on screen are.
+
+        var color = prompt("Please choose a primary or secondary color.","");
+        var relationship = prompt("Please select Complementary or Analogous", "");
+
+        color = color.toLowerCase();
+        relationship = relationship.toLowerCase();
+
+        function colorSelection(color){
+            if (color === "blue"){
+                document.querySelector("body").style.backgroundColor="blue";
+            } else if (color === "red"){
+                document.querySelector("body").style.backgroundColor="red";
+            } else if (color === "yellow"){
+                document.querySelector("body").style.backgroundColor="yellow";
+            } else if (color === "purple"){
+                document.querySelector("body").style.backgroundColor="purple";
+            } else if (color === "orange"){
+                document.querySelector("body").style.backgroundColor="orange";
+            } else if (color === "green"){
+                document.querySelector("body").style.backgroundColor="green";
+            } else{
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>You did not select a color!</p>";
+            }
+        }
+
+        function colorRelationship(hue, colorValue, c){
+            var c;
+
+            //analogous
+            if (hue == "blue" && colorValue == "analogous"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Analogous Colors include colors under the that are next to each other.</p>"
+                document.querySelector("h1").style.color="purple";
+                document.querySelector("h2").style.color="green";
+
+                return c = [0,1,5];
+
+            } else if (hue == "green" && colorValue == "analogous"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Analogous Colors include colors under the that are next to each other.</p>"
+                document.querySelector("h1").style.color="blue";
+                document.querySelector("h2").style.color="yellow";
+
+                return c = [0,1,2];
+
+            } else if (hue == "yellow" && colorValue == "analogous"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Analogous Colors include colors under the that are next to each other.</p>"
+                document.querySelector("h1").style.color="green";
+                document.querySelector("h2").style.color="orange";
+
+                return c = [1,2,3];
+
+            } else if (hue == "orange" && colorValue == "analogous"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Analogous Colors include colors under the that are next to each other.</p>"
+                document.querySelector("h1").style.color="yellow";
+                document.querySelector("h2").style.color="red";
+
+                return c = [2,3,4];
+
+            } else if (hue == "red" && colorValue == "analogous"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Analogous Colors include colors under the that are next to each other.</p>"
+                document.querySelector("h1").style.color="orange";
+                document.querySelector("h2").style.color="purple";
+
+                return c = [3,4,5];
+
+            } else if (hue == "purple" && colorValue == "analogous"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Analogous Colors include colors under the that are next to each other.</p>"
+                document.querySelector("h1").style.color="red";
+                document.querySelector("h2").style.color="blue";
+
+                return c = [0,4,5];
+
+            } 
+
+            //complementary
+            else if (hue == "blue" && colorValue == "complementary"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Complementary Colors include colors on opposite sides of the color wheel.</p>"
+                document.querySelector("h1").style.color="orange";
+                document.querySelector("h2").style.color="orange";
+
+                return c = [0,3];
+
+            } else if (hue == "green" && colorValue == "complementary"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Complementary Colors include colors on opposite sides of the color wheel.</p>"
+                document.querySelector("h1").style.color="red";
+                document.querySelector("h2").style.color="red";
+
+                return c = [1,4];
+
+            } else if (hue == "yellow" && colorValue == "complementary"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Complementary Colors include colors on opposite sides of the color wheel.</p>"
+                document.querySelector("h1").style.color="purple";
+                document.querySelector("h2").style.color="purple";
+
+                return c = [2,5];
+
+            } else if (hue == "orange" && colorValue == "complementary"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Complementary Colors include colors on opposite sides of the color wheel.</p>"
+                document.querySelector("h1").style.color="blue";
+                document.querySelector("h2").style.color="blue";
+
+                return c = [0,3];
+
+            } else if (hue == "red" && colorValue == "complementary"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Complementary Colors include colors on opposite sides of the color wheel.</p>"
+                document.querySelector("h1").style.color="green";
+                document.querySelector("h2").style.color="green";
+
+                return c = [1,4];
+
+            } else if (hue == "purple" && colorValue == "complementary"){
+                var bodyElement = document.querySelector(".noselection");
+                bodyElement.innerHTML="<p>Complementary Colors include colors on opposite sides of the color wheel.</p>"
+                document.querySelector("h1").style.color="yellow";
+                document.querySelector("h2").style.color="yellow";
+
+                return c = [2,5];
+
+            } else{
+                console.log("something went wrong or user did not input value");
+            }
+        }
+
+        function randomNumbers(){
+            colorRelationship(color, relationship);
+            var n = colorRelationship(color, relationship);
+            console.log(n);
+
+            var numbers = ["blue", "green", "yellow", "orange", "red", "purple"];
+
+            if(n.length==3){
+                var bodyElement = document.querySelector(".numbers");
+                bodyElement.innerHTML=`<p>The color relationship on the color wheel is between these colors: ${numbers[n[0]]}, ${numbers[n[1]]}, and ${numbers[n[2]]}</p>`;
+            } else{
+                var bodyElement = document.querySelector(".numbers");
+                bodyElement.innerHTML=`<p>The color relationship on the color wheel is between these colors: ${numbers[n[0]]} and ${numbers[n[1]]}</p>`
+            }
+        }
+
+        colorSelection(color);
+        randomNumbers();
+    </script>
+</body>
+</html>
