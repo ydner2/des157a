@@ -1,0 +1,228 @@
+/* generalstuff */
+body {
+    max-width: 1200px;
+    max-height: 700px;
+    margin: 0;
+    background-color: #110020;
+}
+
+/* mobile design */
+
+/* header */
+header {
+    display: block;
+    max-width: 1200px;
+    height: 200px;
+    cursor: pointer;
+    background: #3B0270;
+}
+
+h1{
+    margin: 0;
+    color: #FFF1F1;
+    font-family: Gruppo;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 13.44px;  
+    
+    margin-left: 10px;
+}
+
+/* article stuff */
+
+article{
+    border-right: 2px solid #8CE4FF;
+    border-bottom: 8px solid #8CE4FF;
+    background: #000;
+    max-width: 500px;
+    box-shadow: 0 4px 4px 0 #FFF;
+    background: #000;
+    margin: 5%;
+}
+
+article h2{
+    color: #8CE4FF;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 15px;
+}
+
+
+article time{
+    color: #8CE4FF;
+    display: block;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+}
+
+article a{
+    text-decoration: none;
+    color: #8CE4FF;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+article a:hover{
+    color: #FFF1F1;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    box-shadow: 0 4px 4px 0 #FFF;
+    background: #000;
+}
+
+article p{
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7em;
+    padding: 15px;
+}
+
+strong{
+    color: #f1cfcf;
+    font-size: 22px;
+    line-height: 1.4em;
+}
+
+
+/* mobile footer stuff */
+
+footer{
+    background: #3B0270;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer p{
+    margin: 0;
+    color: #FFF1F1;
+    font-family: Gruppo;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 7.04px;  
+}
+
+footer #contact a{
+        color: #E9B3FB;
+        font-family: Gruppo;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: underline;
+        letter-spacing: 0;
+    }
+
+#footerAstronaut{
+    width: 75px;
+    height: 75px;
+    transform: rotate(-23deg);
+    background: url(images/astronautsmall.png) no-repeat;
+
+    transition: transform 3s ease-in-out;
+}
+
+#footerAstronaut:hover, #footerAstronaut:active{
+    transform: rotate(-180deg);
+    cursor: pointer;
+}
+
+
+/* desktop design */
+
+@media (min-width: 600px){
+
+    body{
+    margin: auto;
+    }
+
+    /* header stuff */
+    header{
+        display: block;
+        height: 250px;
+    }
+
+    h1{
+        font-size: 96px;
+        text-align: center;
+    }
+
+    /* article stuff */
+
+    article{
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .datetime{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    article h2{
+        flex: 3;
+        text-align: center;
+    }
+    
+    article time{
+        flex: 1;
+        font-size: 18px;
+        display: flex;
+        text-align: right;
+    }
+
+    article .empty{
+        flex: 1;
+    }
+
+
+    /* footer stuff */
+
+ footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    footer p{
+    color: #FFF1F1;
+    font-family: Gruppo;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 7.04px;
+    }
+
+}
+
+@media (min-width: 975px){
+    header{
+        height: 150px;
+    }
+}
