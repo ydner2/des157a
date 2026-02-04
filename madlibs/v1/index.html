@@ -26,13 +26,13 @@
         <h2 class="headerh2">Solar Quest</h2>
     </header>
     <main>
-        <section id="screen1">
+        <section id="screen1" class="showing">
         <div class="image"></div>
 
         <form>
             <h2>Mission Details</h2>
 
-            <section class="section1">
+            <section class="hidden">
                 <label for="year">Space Year</label>
                 <input type="text" id="year" placeholder="2175" required>
 
@@ -42,20 +42,25 @@
                 <fieldset>
                     <legend>Planet Destination</legend>
 
-                    <input type="radio" name="planet" id="jupiter" required>
-                    <label for="jupiter">Jupiter</label>
+                    <div class="radiodiv">
+                        <input type="radio" name="planet" id="jupiter" required>
+                        <label for="jupiter">Jupiter</label>
+                    </div>
+                    <div class="radiodiv">
+                        <input type="radio" name="planet" id="neptune">
+                        <label for="neptune">Neptune</label>
+                    </div>
 
-                    <input type="radio" name="planet" id="neptune">
-                    <label for="neptune">Neptune</label>
-
-                    <input type="radio" name="planet" id="unknownplanet">
-                    <label for="unknownplanet">Planet 1X5A</label>
+                    <div class="radiodiv">
+                        <input type="radio" name="planet" id="unknownplanet">
+                        <label for="unknownplanet">Planet 1X5A</label>
+                    </div>
                 </fieldset>
 
                 <button class="nextbutton" id="next1">Next</button>
             </section>
 
-            <section class="section2">
+            <section class="showing">
                 <label for="company">Federation Company Name</label>
                 <input type="text" id="company" placeholder="Space Quest">
 
@@ -73,7 +78,7 @@
         </form>
         </section>
 
-        <section id="screen2">
+        <section id="screen2" class="hidden">
             <article>
                 <h2>Mission Log</h2>
                 <p><stong>Mission Name:</strong></p>
@@ -84,6 +89,8 @@
                 <p>You were sent on a mission to retrieve an artifact from [<strong>city</strong>]. When we arrived, the city seemed more [<strong>adjective</strong>] than you remember and as you were [<strong>verb</strong>] towards the artifact you discovered [<strong>name</strong>], a local plant species.</p>
                  
                 <p>You take back the artifact and the plant species back to the trade federation for examination.</p>
+
+                <p><a href="#">Restart Journey</a></p>
             </article>
         </section>
     </main>
