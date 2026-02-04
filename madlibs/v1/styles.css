@@ -39,7 +39,12 @@ header h2{
 
 /* first image */
 
-
+.image{
+    background-image: url(images/spacestationmobile.png);
+    max-width: 600px;
+    height: 300px;
+    background-position: center;
+}
 
 /* form stuff */
 
