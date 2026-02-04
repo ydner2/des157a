@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DES 157A Portal Page</title>
+
+    <!-- normalize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
+
+    <!-- style sheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- script -->
+     <script src="script.js" defer></script> 
+</head>
+
+<body>
+    <header>
+        <h1>MadLib</h1>
+        <h2 class="headerh2">Solar Quest</h2>
+    </header>
+    <main>
+        <section id="screen1">
+        <div class="image"></div>
+
+        <form>
+            <h2>Mission Details</h2>
+
+            <section class="section1">
+                <label for="year">Space Year</label>
+                <input type="text" id="year" placeholder="2175" required>
+
+                <label for="mission">Mission Name</label>
+                <input type="text" id="mission" placeholder="Quest A7x5" required>
+
+                <fieldset>
+                    <legend>Planet Destination</legend>
+
+                    <input type="radio" name="planet" id="jupiter" required>
+                    <label for="jupiter">Jupiter</label>
+
+                    <input type="radio" name="planet" id="neptune">
+                    <label for="neptune">Neptune</label>
+
+                    <input type="radio" name="planet" id="unknownplanet">
+                    <label for="unknownplanet">Planet 1X5A</label>
+                </fieldset>
+
+                <button class="nextbutton" id="next1">Next</button>
+            </section>
+
+            <section class="section2">
+                <label for="company">Federation Company Name</label>
+                <input type="text" id="company" placeholder="Space Quest">
+
+                <label for="city">City Name</label>
+                <input type="text" id="city" placeholder="Kronos">
+
+                <label for="exercise">Method of Exercise</label>
+                <input type="text" id="exercise" placeholder="Running">
+
+                <label for="mission">Plant Species</label>
+                <input type="text" id="mission" placeholder="Ferns">
+
+                <input type="submit" name="submit" id="send-form" value="Launch">
+            </section>
+        </form>
+        </section>
+
+        <section id="screen2">
+            <article>
+                <h2>Mission Log</h2>
+                <p><stong>Mission Name:</strong></p>
+                <p><strong>Entry Number:</strong></p>
+
+                <p>It was the year [<strong>year</strong>], and the trade federation [<strong>noun</strong>] discovered an ancient ruin site on [<strong>planet</strong>], a planetary body.</p>
+                    
+                <p>You were sent on a mission to retrieve an artifact from [<strong>city</strong>]. When we arrived, the city seemed more [<strong>adjective</strong>] than you remember and as you were [<strong>verb</strong>] towards the artifact you discovered [<strong>name</strong>], a local plant species.</p>
+                 
+                <p>You take back the artifact and the plant species back to the trade federation for examination.</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div id="footerAstronaut"></div>
+        <p>Designed by Ryden Richards</p>
+        <p id="contact"><a href="../index.html">Back to Home</a></p>
+    </footer>
+</body>
+</html>
