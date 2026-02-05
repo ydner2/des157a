@@ -54,10 +54,12 @@ form{
     border-right: 2px solid #8CE4FF;
     border-bottom: 8px solid #8CE4FF;
     background: #000;
-    max-width: 500px;
+    max-width: 400px;
     box-shadow: 0 4px 4px 0 #FFF;
     background: #000;
-    margin: 5vw;
+
+    width: 90vw;
+    margin: auto;
 }
 
 form h2{
@@ -173,8 +175,8 @@ input[type=submit]{
     background: #8CE4FF;
     box-shadow: 0 4px 4px 0 rgba(140, 228, 255, 0.50);
     border: none;
-    margin: 30px 5vw 50px 5vw;
-    padding: 10px 0 10px 0;
+    margin: auto;
+    padding: 10px 40px 10px 40px;
     cursor: pointer;
 
     transition: .5s ease-in;
@@ -200,6 +202,10 @@ input[type=submit]:hover, input[type=submit]:active{
 
 
 /* general article stuff */
+
+#screen2{
+    display: none;
+}
 
 article{
     border-right: 2px solid #8CE4FF;
@@ -301,7 +307,6 @@ article button:hover{
 footer{
     background: #3B0270;
     padding: 20px;
-    margin-top: 20px;
 }
 
 footer p{
@@ -357,6 +362,13 @@ footer #contact a{
     }
 
     /* form desktop formatting */
+    form section label{
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 2.5vw 10px 2.5vw;
+    }
 
     #screen1{
         display: flex;
@@ -376,7 +388,23 @@ footer #contact a{
         height: 30px;
     }
 
+    form{
+        display: block;
+        margin: 0;
+    }
 
+    form section fieldset{
+            margin: 0 2.5vw 10px 2.5vw;
+    }
+
+    form section fieldset label{
+            margin: 0 0 0 5px;
+    }
+
+    form section fieldset .radiodiv{
+        margin-top: 10px;
+        margin-left: 2vw;
+    }
 
     /* second section flex stuff */
 
