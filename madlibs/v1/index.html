@@ -26,7 +26,7 @@
         <h2 class="headerh2">Solar Quest</h2>
     </header>
     <main>
-        <section id="screen1" class="showing">
+        <section id="screen1">
         <div class="image"></div>
 
         <form>
@@ -70,19 +70,19 @@
                 <label for="exercise">Method of Exercise</label>
                 <input type="text" id="exercise" placeholder="Running">
 
-                <label for="mission">Plant Species</label>
-                <input type="text" id="mission" placeholder="Ferns">
+                <label for="species">Plant Species</label>
+                <input type="text" id="species" placeholder="Ferns">
 
                 <input type="submit" name="submit" id="send-form" value="Launch">
             </section>
         </form>
         </section>
 
-        <section id="screen2" class="hidden">
+        <section id="screen2">
             <article>
-                <h2>Mission Log</h2>
-                <p><stong>Mission Name:</strong></p>
-                <p><strong>Entry Number:</strong></p>
+                <h2 class="articleheading">Mission Log</h2>
+                <p class="articletop"><strong>Mission Name:</strong></p>
+                <p class="articletop"><strong>Entry Number:</strong></p>
 
                 <p>It was the year [<strong>year</strong>], and the trade federation [<strong>noun</strong>] discovered an ancient ruin site on [<strong>planet</strong>], a planetary body.</p>
                     
@@ -90,8 +90,16 @@
                  
                 <p>You take back the artifact and the plant species back to the trade federation for examination.</p>
 
-                <p><a href="#">Restart Journey</a></p>
+                <button>Restart Journey</button>
             </article>
+
+            <section id="imagesection2">
+                <div id="planetimage"></div>
+                <figure id="plant">
+                    <img src="images/plant.png" alt="Local plant flora.">
+                    <figcaption>Local Plant Flora</figcaption>
+                </figure>
+            </section>
         </section>
     </main>
     <footer>

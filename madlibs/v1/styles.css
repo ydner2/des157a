@@ -219,6 +219,7 @@ article h2{
     font-style: normal;
     font-weight: 400;
     padding: 15px;
+    margin-bottom: 0;
 }
 
 article p{
@@ -226,28 +227,72 @@ article p{
     font-family: "Space Grotesk";
     font-size: 20px;
     font-weight: 400;
-    line-height: 1.7em;
+    line-height: 1.3em;
     padding-right: 15px;
     padding-left: 15px;
 }
 
 article p strong{
      color: #8CE4FF;
+     font-weight: normal;
 }
 
-article a{
-    text-decoration: none;
-    color: #8CE4FF;
-    text-align: center;
+.articletop{
+    margin: 0;
+    line-height: normal;
+}
+
+article button{
+    display: flex;
+    color: #3B0270;
     font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    background: #8CE4FF;
+    box-shadow: 0 4px 4px 0 rgba(140, 228, 255, 0.50);
+    border: none;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px 40px 10px 40px;
+    cursor: pointer;
+
+    transition: .5s ease-in;
 }
 
-article a:hover{
+article button:hover{
     color: #FFF1F1;
-    text-align: center;
-    font-family: "Space Grotesk";
+    border-radius: 20px;
+    border: solid 2px #FFF;
+    box-shadow: 0 10px 10px 0 #FFF;
+    background: #000;
+}
+
+/* second images section */
+
+#planetimage{
+    background: url(images/planet.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 300px;
+    overflow: visible;
+}
+
+#plant{
+    border-right: 2px solid #8CE4FF;
+    border-bottom: 8px solid #8CE4FF;
+    background: #000;
+    max-width: 500px;
     box-shadow: 0 4px 4px 0 #FFF;
     background: #000;
+    margin: 5%;
+}
+
+#plant figcaption{
+    background: rgba(140, 228, 255, 0.50);
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    padding: 5px;
 }
 
 
@@ -295,14 +340,71 @@ footer #contact a{
 
 @media (min-width: 600px){
 
+    body{
+        margin: auto;
+    }
+
     /* header stuff */
     header{
-        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: baseline;
     }
 
     h1{
         font-size: 96px;
         text-align: center;
+    }
+
+    /* form desktop formatting */
+
+    #screen1{
+        display: flex;
+        align-items: center;
+    }
+
+    .image{
+        background-image: url(images/spacestation.png);
+        flex: 1;
+        max-width: 600px;
+        height: 576px;
+        background-position: center;
+    }
+
+    input[type=text]{
+        margin: 0 2.5vw 10px 2.5vw;
+        height: 30px;
+    }
+
+
+
+    /* second section flex stuff */
+
+    article{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #screen2{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        display: none;
+    }
+
+    #imagesection2{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    #planetimage{
+        transform: scale(1.25);
+    }
+
+    #plant{
+        min-width: 300px;
     }
 
 
