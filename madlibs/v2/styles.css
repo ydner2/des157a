@@ -1,0 +1,460 @@
+/* generalstuff */
+body {
+    max-width: 1200px;
+    max-height: 700px;
+    margin: 0;
+    background-color: #110020;
+}
+
+/* mobile design */
+
+/* header */
+header {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    max-height: 200px;
+    background: #3B0270;
+}
+
+h1{
+    margin: 0;
+    color: #FFF1F1;
+    font-family: Gruppo;
+    font-size: 64px;
+    font-weight: 400;
+    letter-spacing: 13.44px;  
+    text-align: center;
+}
+
+header h2{
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 8.8px;
+
+    text-align: center;
+}
+
+/* first image */
+
+.image{
+    background-image: url(images/spacestationmobile.png);
+    max-width: 600px;
+    height: 300px;
+    background-position: center;
+}
+
+/* form stuff */
+
+form{
+    display: block;
+
+    border-right: 2px solid #8CE4FF;
+    border-bottom: 8px solid #8CE4FF;
+    background: #000;
+    max-width: 400px;
+    box-shadow: 0 4px 4px 0 #FFF;
+    background: #000;
+
+    width: 90vw;
+    margin: auto;
+}
+
+form h2{
+    color: #8CE4FF;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 15px;
+}
+
+form section{
+    display: flex;
+    flex-direction: column;
+}
+
+form section label{
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    margin: 10px 5vw 10px 5vw;
+}
+
+/* text input */
+
+input[type=text]{
+    margin: 0 5vw 10px 5vw;
+    height: 40px;
+
+    /* box settings */
+    border-right: 1px solid #8CE4FF;
+    border-bottom: 2px solid #8CE4FF;
+    background: #FFF1F1;
+
+    /* text settings */
+    color: #3B0270;
+    font-family: "Space Grotesk";
+
+    /* transtion */
+    transition: background-color 1s ease-in-out;
+    transition: box-shadow .5s ease-in-out;
+}
+
+input[type=text]:focus{
+    background-color: #8CE4FF;
+    outline: solid 1.5px #FFF;
+    box-shadow: 0 5px 10px 0 #FFF;
+}
+
+/* radio input */
+
+form section fieldset{
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 5vw 0 5vw;
+    padding: 0;
+    border: none;
+}
+
+form section fieldset label{
+    margin: 0 0 0 10px;
+}
+
+form section fieldset .radiodiv{
+    margin-top: 10px;
+    margin-left: 5vw;
+}
+
+form section fieldset input[type=radio]{
+    accent-color: #FFF1F1;
+}
+
+/* had to look this one up lol */
+form section fieldset input[type=radio]:checked{
+
+    accent-color: #8CE4FF;
+}
+
+/* buttons */
+
+form section button{
+    color: #3B0270;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    background: #8CE4FF;
+    box-shadow: 0 4px 4px 0 rgba(140, 228, 255, 0.50);
+    border: none;
+    margin: 30px 5vw 50px 5vw;
+    padding: 10px 0 10px 0;
+    cursor: pointer;
+
+    transition: .5s ease-in;
+}
+
+form section button:hover{
+    color: #FFF1F1;
+    border-radius: 20px;
+    border: solid 2px #FFF;
+    box-shadow: 0 10px 10px 0 #FFF;
+    background: #000;
+}
+
+input[type=submit]{
+    color: #3B0270;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    background: #8CE4FF;
+    box-shadow: 0 4px 4px 0 rgba(140, 228, 255, 0.50);
+    border: none;
+    margin: auto;
+    padding: 10px 40px 10px 40px;
+    cursor: pointer;
+
+    transition: .5s ease-in;
+}
+
+input[type=submit]:hover, input[type=submit]:active{
+    color: #FFF1F1;
+    border-radius: 20px;
+    border: solid 2px #FFF;
+    box-shadow: 0 10px 10px 0 #FFF;
+    background: #000;
+}
+
+/* submit */
+
+
+/* form showing vs hidden */
+
+.hidden{
+    display: none;
+}
+
+
+
+/* general article stuff */
+
+#screen2{
+    display: none;
+    flex-direction: column;
+}
+
+article{
+    border-right: 2px solid #8CE4FF;
+    border-bottom: 8px solid #8CE4FF;
+    background: #000;
+    max-width: 500px;
+    box-shadow: 0 4px 4px 0 #FFF;
+    background: #000;
+    margin: 5%;
+}
+
+article h2{
+    color: #8CE4FF;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 15px;
+    margin-bottom: 0;
+}
+
+article p{
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3em;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+article p strong{
+     color: #8CE4FF;
+     font-weight: normal;
+}
+
+.articletop{
+    margin: 0;
+    line-height: normal;
+}
+
+article button{
+    display: flex;
+    color: #3B0270;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    background: #8CE4FF;
+    box-shadow: 0 4px 4px 0 rgba(140, 228, 255, 0.50);
+    border: none;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px 40px 10px 40px;
+    cursor: pointer;
+
+    transition: .5s ease-in;
+}
+
+article button:hover{
+    color: #FFF1F1;
+    border-radius: 20px;
+    border: solid 2px #FFF;
+    box-shadow: 0 10px 10px 0 #FFF;
+    background: #000;
+}
+
+/* second images section */
+
+#planetimage{
+    background: url(images/planet.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 300px;
+    overflow: visible;
+}
+
+#plant{
+    border-right: 2px solid #8CE4FF;
+    border-bottom: 8px solid #8CE4FF;
+    background: #000;
+    max-width: 500px;
+    box-shadow: 0 4px 4px 0 #FFF;
+    background: #000;
+    margin: 5%;
+}
+
+#plant figcaption{
+    background: rgba(140, 228, 255, 0.50);
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    padding: 5px;
+}
+
+
+/* mobile footer stuff */
+
+footer{
+    background: #3B0270;
+    padding: 20px;
+}
+
+footer p{
+    margin: 0;
+    color: #FFF1F1;
+    font-family: Gruppo;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 7.04px;  
+}
+
+footer #contact a{
+        color: #E9B3FB;
+        font-family: Gruppo;
+        font-size: 24px;
+        text-decoration: underline;
+        letter-spacing: 0;
+    }
+
+#footerAstronaut{
+    width: 75px;
+    height: 75px;
+    transform: rotate(-23deg);
+    background: url(images/astronautsmall.png) no-repeat;
+
+    transition: transform 3s ease-in-out;
+}
+
+#footerAstronaut:hover, #footerAstronaut:active{
+    transform: rotate(-180deg);
+    cursor: pointer;
+}
+
+
+/* desktop design */
+
+@media (min-width: 600px){
+
+    body{
+        margin: auto;
+    }
+
+    /* header stuff */
+    header{
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: baseline;
+    }
+
+    h1{
+        font-size: 96px;
+        text-align: center;
+    }
+
+    /* form desktop formatting */
+    form section label{
+    color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 2.5vw 10px 2.5vw;
+    }
+
+    #screen1{
+        display: flex;
+        align-items: center;
+    }
+
+    .image{
+        background-image: url(images/spacestation.png);
+        flex: 1;
+        max-width: 600px;
+        height: 576px;
+        background-position: center;
+    }
+
+    input[type=text]{
+        margin: 0 2.5vw 10px 2.5vw;
+        height: 30px;
+    }
+
+    form{
+        display: block;
+        margin: 0;
+    }
+
+    form section fieldset{
+            margin: 0 2.5vw 10px 2.5vw;
+    }
+
+    form section fieldset label{
+            margin: 0 0 0 5px;
+    }
+
+    form section fieldset .radiodiv{
+        margin-top: 10px;
+        margin-left: 2vw;
+    }
+
+    /* second section flex stuff */
+
+    article{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #screen2{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex-direction: row;
+        justify-content: space-around;
+        display: none;
+    }
+
+    #imagesection2{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    #planetimage{
+        transform: scale(1.25);
+    }
+
+    #plant{
+        min-width: 300px;
+    }
+
+
+
+    /* footer stuff */
+
+ footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    footer p{
+    color: #FFF1F1;
+    font-family: Gruppo;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 7.04px;
+    }
+
+}

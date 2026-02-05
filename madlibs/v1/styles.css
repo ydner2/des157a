@@ -199,8 +199,6 @@ input[type=submit]:hover, input[type=submit]:active{
     display: none;
 }
 
-
-
 /* general article stuff */
 
 #screen2{
@@ -416,8 +414,8 @@ footer #contact a{
     #screen2{
         margin-top: 10px;
         margin-bottom: 10px;
-        display: flex;
         flex-direction: row;
+        display: flex;
         justify-content: space-around;
         display: none;
     }
