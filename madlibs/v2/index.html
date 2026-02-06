@@ -32,6 +32,8 @@
             <form>
                 <h2>Mission Details</h2>
 
+                <p class="errormessage"></p>
+
                 <section class="showing" id="firstform">
                     <label for="year">Space Year</label>
                     <input type="text" id="year" placeholder="2175" required>
@@ -43,16 +45,16 @@
                         <legend>Planet Destination</legend>
 
                         <div class="radiodiv">
-                            <input type="radio" name="planet" id="jupiter" required>
+                            <input type="radio" name="planet" id="jupiter" value="Jupiter" required>
                             <label for="jupiter">Jupiter</label>
                         </div>
                         <div class="radiodiv">
-                            <input type="radio" name="planet" id="neptune">
+                            <input type="radio" name="planet" id="neptune" value="Neptune">
                             <label for="neptune">Neptune</label>
                         </div>
 
                         <div class="radiodiv">
-                            <input type="radio" name="planet" id="unknownplanet">
+                            <input type="radio" name="planet" id="unknownplanet" value="Planet 1X5A">
                             <label for="unknownplanet">Planet 1X5A</label>
                         </div>
                     </fieldset>
@@ -81,16 +83,16 @@
         <section id="screen2">
             <article>
                 <h2 class="articleheading">Mission Log</h2>
-                <p class="articletop"><strong>Mission Name:</strong></p>
-                <p class="articletop"><strong>Entry Number:</strong></p>
+                <p class="articletop"><strong class="madlib">Mission Name:</strong></p>
+                <p class="articletop"><strong class="randomnumber">Entry Number:</strong></p>
 
-                <p>It was the year [<strong>year</strong>], and the trade federation [<strong>noun</strong>] discovered an ancient ruin site on [<strong>planet</strong>], a planetary body.</p>
+                <p>It was the year <strong class="madlib">year</strong>, and the trade federation <strong class="madlib">company</strong> discovered an ancient ruin site on <strong class="madlib">planet</strong>, a planetary body.</p>
                     
-                <p>You were sent on a mission to retrieve an artifact from [<strong>city</strong>]. When we arrived, the city seemed more [<strong>adjective</strong>] than you remember and as you were [<strong>verb</strong>] towards the artifact you discovered [<strong>name</strong>], a local plant species.</p>
+                <p>We were sent on a mission to retrieve an artifact from <strong class="madlib">city</strong>. When we arrived, we <strong class="madlib">exercise</strong> towards the artifact you discovered <strong class="madlib">species</strong>, a local plant species.</p>
                  
                 <p>You take back the artifact and the plant species back to the trade federation for examination.</p>
 
-                <button>Restart Journey</button>
+                <button class="button3" id="button3">Restart Journey</button>
             </article>
 
             <section id="imagesection2">

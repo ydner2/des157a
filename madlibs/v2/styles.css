@@ -60,6 +60,7 @@ form{
 
     width: 90vw;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 form h2{
@@ -79,6 +80,15 @@ form section{
 
 form section label{
     color: #FFF1F1;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: 400;
+    margin: 10px 5vw 10px 5vw;
+}
+
+form .errormessage{
+    display: none;
+    color: #8CE4FF;
     font-family: "Space Grotesk";
     font-size: 20px;
     font-weight: 400;
@@ -175,7 +185,7 @@ input[type=submit]{
     background: #8CE4FF;
     box-shadow: 0 4px 4px 0 rgba(140, 228, 255, 0.50);
     border: none;
-    margin: auto;
+    margin: 30px 5vw 50px 5vw;
     padding: 10px 40px 10px 40px;
     cursor: pointer;
 
@@ -393,6 +403,11 @@ footer #contact a{
         display: block;
         margin: 0;
     }
+
+    form .errormessage{
+    display: none;
+    margin: 10px 2.5vw 10px 2.5vw;
+}
 
     form section fieldset{
             margin: 0 2.5vw 10px 2.5vw;
