@@ -55,6 +55,7 @@
     const secondscreen = document.querySelector("#screen2");
 
     const putData = document.querySelectorAll(".madlib");
+    const randomnumber = document.querySelector(".randomnumber");
 
     secondbtn.addEventListener("click", function(event){
         //first we need to prevent default
@@ -93,10 +94,15 @@
         } else{
         //second we need to set screen1 in the CSS to display none and screen2 we need to turn off the display none function. (we can just set it to flex).
 
-        console.log(putData[0]);
+        const numOfValues = 9501; 
+        const randomNum = Math.random();
+        const randomVal = randomNum * numOfValues;
+        const roundedRandomVal = 500 + Math.floor(randomVal);
         
         firstscreen.style.display="none";
         secondscreen.style.display="flex";
+
+        randomnumber.innerHTML += " " + roundedRandomVal;
 
         putData[0].innerHTML += " " + mission;
         putData[1].innerHTML = year;
