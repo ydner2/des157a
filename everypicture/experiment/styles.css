@@ -1,0 +1,48 @@
+.division{
+    display: flex;
+}
+
+.imagesection{
+    display: block;
+	margin: 0;
+	width: 70vw;
+	height: 100vh;
+	position: fixed;
+	top:0;
+	right:0;
+	overflow: hidden;
+    
+}
+
+main{
+    width: 30vw;
+	padding: 20px;
+}
+
+img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+	transition: all 3s ease;
+}
+
+section{
+    height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.imgsection1{
+    left: 0;
+}
+.imgsection2{
+    left: -50vw;
+}
+.imgsection3{
+    left: -100vw;
+}
+.imgsection4{
+    left: -150vw;
+}

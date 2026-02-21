@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DES 157A Portal Page</title>
+
+    <!-- normalize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
+
+    <!-- style sheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- script -->
+     <script src="script.js" defer></script> 
+</head>
+
+<body>
+    <header>
+        <h1>MadLib</h1>
+        <h2 class="headerh2">Solar Quest</h2>
+    </header>
+    <main>
+        <section id="screen1">
+            <div class="image"></div>
+
+            <form>
+                <h2>Mission Details</h2>
+
+                <p class="errormessage"></p>
+
+                <section class="showing" id="firstform">
+                    <label for="year">Space Year</label>
+                    <input type="text" id="year" placeholder="2175" required>
+
+                    <label for="mission">Mission Name</label>
+                    <input type="text" id="mission" placeholder="Quest A7x5" required>
+
+                    <fieldset>
+                        <legend>Planet Destination</legend>
+
+                        <div class="radiodiv">
+                            <input type="radio" name="planet" id="jupiter" value="Jupiter" required>
+                            <label for="jupiter">Jupiter</label>
+                        </div>
+                        <div class="radiodiv">
+                            <input type="radio" name="planet" id="neptune" value="Neptune">
+                            <label for="neptune">Neptune</label>
+                        </div>
+
+                        <div class="radiodiv">
+                            <input type="radio" name="planet" id="unknownplanet" value="Planet 1X5A">
+                            <label for="unknownplanet">Planet 1X5A</label>
+                        </div>
+                    </fieldset>
+
+                    <button class="nextbutton" id="next1">Next</button>
+                </section>
+
+                <section class="hidden" id="secondform">
+                    <label for="company">Federation Company Name</label>
+                    <input type="text" id="company" placeholder="Space Quest">
+
+                    <label for="city">City Name</label>
+                    <input type="text" id="city" placeholder="Kronos">
+
+                    <label for="exercise">Method of Exercise</label>
+                    <input type="text" id="exercise" placeholder="Running">
+
+                    <label for="species">Plant Species</label>
+                    <input type="text" id="species" placeholder="Ferns">
+
+                    <div class="btnselection">
+                        <button id="thirdbtn" class="back">Back</button>
+
+                        <input type="submit" name="submit" id="send-form" value="Launch">
+                    </div>
+                </section>
+            </form>
+        </section>
+
+        <section id="screen2">
+            <article>
+                <h2 class="articleheading">Mission Log</h2>
+                <p class="articletop"><strong class="madlib">Mission Name:</strong></p>
+                <p class="articletop"><strong class="randomnumber">Entry #:</strong></p>
+
+                <p>It was the year <strong class="madlib">year</strong>, and the trade federation <strong class="madlib">company</strong> discovered an ancient ruin site on <strong class="madlib">planet</strong>, a planetary body.</p>
+                    
+                <p>We were sent on a mission to retrieve an artifact from <strong class="madlib">city</strong>. When we arrived, we <strong class="madlib">exercise</strong> towards the artifact you discovered <strong class="madlib">species</strong>, a local plant species.</p>
+                 
+                <p>You take back the artifact and the plant species back to the trade federation for examination.</p>
+
+                <button class="button3" id="button3">Restart Journey</button>
+            </article>
+
+            <section id="imagesection2">
+                <div id="planetimage" class="planettype"></div>
+                <figure id="plant">
+                    <img src="images/plant.png" alt="Local plant flora.">
+                    <figcaption>Local Plant Flora</figcaption>
+                </figure>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <div id="footerAstronaut"></div>
+        <p>Designed by Ryden Richards</p>
+        <p id="contact"><a href="../index.html">Back to Home</a></p>
+    </footer>
+</body>
+</html>
