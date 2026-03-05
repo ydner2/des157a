@@ -1,0 +1,105 @@
+/* color scheme */
+/* Flag Red #d32222
+Platinum #eff1f0
+Black #020001
+Shamrock #009d62 */
+
+/* Typography Desktop */
+/* h1 32px Audiowide
+button 36px audiowide
+li & data 32px audiowide
+p  32px sansation light */
+
+/* header */
+
+header{
+    background-color: #d32222;
+    max-width: 1200px;
+    display: flex;
+    height: 100px;
+}
+
+h1{
+    font-family: "audiowide", monospace;
+    margin: 0;
+    margin: auto;
+    font-size: 36px;
+    text-align: center;
+    color: #eff1f0;
+}
+
+/* player stats */
+
+.playerstats{
+    border: 10px solid #009D62;
+    background: #020001;
+    height: 154px;
+}
+
+.playerstats p{
+    color: #009D62;
+    font-family: "audiowide", monospace;
+    font-size: 32px;
+    margin: 0;
+}
+
+.seperator{
+    margin: 24px 36px 24px 36px;
+    display: flex;
+}
+
+.seperator p{
+    flex: 1;
+}
+
+.seperator .lapnumber{
+    text-align: end;
+}
+
+.seperator div{
+    flex: 1;
+}
+
+/* footer stuff */
+footer{
+    background: #d32222;
+}
+
+footer .buttonselection{
+    display: flex;
+    justify-content: space-around;
+}
+
+footer #rolldicebtn{
+    /* btn background */
+    border-radius: 16px;
+    background: #020001;
+    box-shadow: 10px 11px 4px 0 rgba(2, 0, 1, 0.62);
+
+    max-width: 186px;
+    height: 67px;
+
+    /* text */
+    color: #EFF1F0;
+    font-family: Audiowide;
+    font-size: 32px;
+
+    flex:1;
+}
+
+footer #refuelbtn{
+    /* btn background */
+    border-radius: 0;
+    background: #EFF1F0;
+
+    max-width: 186px;
+    height: 67px;
+
+    /* text */
+    color: #000;
+    font-family: Audiowide;
+    font-size: 32px;
+
+    flex: 1;
+
+}
