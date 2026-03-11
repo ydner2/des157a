@@ -28,6 +28,27 @@ h1{
     color: #eff1f0;
 }
 
+/* images */
+.player{
+    border-bottom: 3px solid #EFF1F0;
+    border-top: 3px solid #EFF1F0;
+}
+
+.race{
+    position: relative;
+}
+
+.player .race .racetrack{
+    display: block;
+    width: 100vw;
+}
+
+.player .race .car{
+    position: absolute;
+    bottom: 0;
+    width: 40vw;
+}
+
 /* player stats */
 
 .playerstats{
@@ -58,6 +79,8 @@ h1{
 
 .seperator div{
     flex: 1;
+    max-width: 20vw;
+    background:#009D62;
 }
 
 /* footer stuff */
@@ -65,7 +88,19 @@ footer{
     background: #d32222;
 }
 
+.dicerolls{
+    background: #EFF1F0;
+    display: flex;
+    gap: 5vw;
+}
+
+.dice{
+    margin: auto;
+    justify-content: center;
+}
+
 footer .buttonselection{
+    padding: 20px 0 20px 0;
     display: flex;
     justify-content: space-around;
 }
@@ -75,6 +110,7 @@ footer #rolldicebtn{
     border-radius: 16px;
     background: #020001;
     box-shadow: 10px 11px 4px 0 rgba(2, 0, 1, 0.62);
+    border: none;
 
     max-width: 186px;
     height: 67px;
@@ -85,12 +121,24 @@ footer #rolldicebtn{
     font-size: 32px;
 
     flex:1;
+    transition: background-color 1s ease;
+}
+
+footer #rolldicebtn:hover{
+    /* btn background */
+    background: #009D62;
+
+    /* text */
+    color: #EFF1F0;
+
+    cursor: pointer;
 }
 
 footer #refuelbtn{
     /* btn background */
     border-radius: 0;
     background: #EFF1F0;
+    border: none;
 
     max-width: 186px;
     height: 67px;
@@ -101,5 +149,204 @@ footer #refuelbtn{
     font-size: 32px;
 
     flex: 1;
+    transition: background-color 1s ease;
+
+}
+
+footer #refuelbtn:hover{
+    /* btn background */
+    background:#009D62;
+
+    /* text */
+    color:#EFF1F0;
+
+    cursor: pointer;
+}
+
+/* stuff from chatGPT. I had flex box before but needed the grid layout to get the desktop view I needed. I had to do a lot of editing to the grid*/
+/* FOOTER */
+
+footer{
+    background: #d32222;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto; 
+    align-items: center;
+}
+
+/* dice background containers */
+
+.dicebox{
+    background: #EFF1F0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* dice image */
+
+.dice{
+    width: 60px;
+    height: auto;
+}
+
+/* placement */
+
+#dicebox1{
+    grid-row: 1;
+    grid-column: 1/3;
+}
+
+#dicebox2{
+    grid-row: 1;
+    grid-column: 3/6;
+}
+
+/* buttons */
+
+.buttonselection{
+    grid-column: 1/6;
+    display: flex;
+    grid-row: 2;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* overlay! */
+
+body{
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    background: rgba(2, 0, 1, 0.83);
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    /* display: flex; */
+    display: none;
+}
+
+.overlay p{
+    color: #FFF;
+    text-align: center;
+    font-family: Audiowide;
+    font-size: 36px;
+    margin: auto;
+}
+
+/* media! */
+@media (min-width: 600px){
+
+    h1{
+        font-size: 60px;
+    }
+
+    /* images and stats */
+    body{
+        max-width: 1200px;
+        margin: auto;
+    }
+    .player{
+        display: flex;
+        max-width: 1200px;
+    }
+
+    .player .race .racetrack{
+        max-width: 60vw;
+        height: 100%;
+    }
+
+    .player .playerstats{
+        width: 40vw;
+        height: 100%;
+    }
+
+    /* footer stuff */
+    footer{
+        background: #d32222;
+        align-items: center;
+        padding: 20px;
+        gap: 0;
+    }
+
+    .dicerolls{
+        background: transparent;
+        display: contents;
+    }
+
+    #dice1{
+        justify-self: start;
+    }
+
+    #dice2{
+        justify-self: end;
+    }
+
+    .dice{
+        margin: 0;
+    }
+
+    footer .buttonselection{
+        position: static;
+        background-color: transparent;
+        justify-self: stretch;
+        gap: 20px;
+        padding: 0;
+
+    }
+
+    footer #rolldicebtn{
+        font-size: 32px;
+        flex: 1;
+    }
+
+
+    footer #refuelbtn{
+        font-size: 32px;
+        flex: 1;
+    }
+
+    /* overlay */
+    .overlay p{
+        font-size: 40px;
+    }
+
+    footer{
+        grid-template-rows: auto;
+    }
+
+    #dicebox1{
+        grid-column: 1;
+    }
+
+    .buttonselection{
+        grid-column: 2/6;
+        grid-row: 1;
+    }
+
+    #dicebox2{
+        grid-column: 6;
+    }
+
+    }
+
+@media (min-width: 1200px){
+    /* images and stats */
+    .player{
+        display: flex;
+        max-width: 1200px;
+    }
+
+    .player .race .racetrack{
+        max-width: 720px;
+        height: 100%;
+    }
+
+    .player .playerstats{
+        width: 480px;
+        height: 100%;
+    }
 
 }
