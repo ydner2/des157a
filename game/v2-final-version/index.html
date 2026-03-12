@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indy 500</title>
+
+    <!-- normalize css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- google fonts! -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Sansation:wght@300&display=swap" rel="stylesheet">
+
+    <!-- styles! -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- scripting -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>INDY-500 RACE</h1>
+    </header>
+
+    <main>
+        <section class="player" id="player1">
+            <div class="race">
+                <img class="racetrack" src="images/racetrack.jpg" srcset="images/racetrack.jpg 600w, images/racetrackdesktop.jpg 1200w" sizes="(min-width: 600px) 60vw, 100vw" alt="racetrack">
+                <img class="car" src="images/car1.png" alt="racecar">
+            </div>
+
+            <section class="playerstats" id="player1stats">
+                <div class="seperator">
+                    <p id="lap1">Lap</p>
+                    <p class="lapnumber" id="lapplayer1">0</p>
+                </div>
+                <div class="seperator">
+                    <p class="fuel">Fuel</p>
+                    <div class="fuelbar" id="fuelbar1"></div>
+                </div>
+            </section>
+        </section>
+
+        <section class="player" id="player2">
+            <div class="race">
+                <img class="racetrack" src="images/racetrack.jpg" srcset="images/racetrack.jpg 600w, images/racetrackdesktop.jpg 1200w" sizes="(min-width: 600px) 60vw, 100vw" alt="racetrack">
+                <img class="car" src="images/car2.png" alt="racecar">
+            </div>
+
+            <section class="playerstats" id="player2stats">
+                <div class="seperator">
+                    <p id="lap2">Lap</p>
+                    <p class="lapnumber" id="lapplayer2">0</p>
+                </div>
+                <div class="seperator">
+                    <p class="fuel">Fuel</p>
+                    <div class="fuelbar" id="fuelbar2"></div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <section class="overlay" id="overlay">
+        <p>Player 1 Rolled 6 and 6 +25 Laps</p>
+    </section>
+
+    <!-- <footer>
+        <section class="dicerolls">
+            <img src="images/dice1.png" alt="dice1" class="dice" id="dice1">
+            <img src="images/dice2.png" alt="dice2" class="dice" id="dice2">
+        </section>
+        <section class="buttonselection">
+            <button id="rolldicebtn">Roll Dice</button>
+            <button id="refuelbtn">Refuel</button>
+        </section>
+    </footer> -->
+
+    <!-- Chat GPT helped me reformat my code into a grid structure that would work with the figma design. Here is the reformated I will probably need to restructure stuff-->
+
+    <footer>
+        <div class="dicebox" id="dicebox1">
+            <img src="images/dice1.png" alt="dice1" class="dice" id="dice1">
+        </div>
+
+        <section class="buttonselection" id="gamecontrol">
+            <button id="rolldicebtn">Roll Dice</button>
+            <button id="refuelbtn">Refuel</button>
+        </section>
+
+        <div class="dicebox" id="dicebox2">
+            <img src="images/dice2.png" alt="dice2" class="dice" id="dice2">
+        </div>
+    </footer>
+</body> 
+</html>
