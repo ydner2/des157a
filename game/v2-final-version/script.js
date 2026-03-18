@@ -24,15 +24,19 @@
     const dice2 = document.querySelector('#dicebox2');
     const overlay = document.querySelector('#overlay');
 
-    //this will be done later.
-    const player1outline = document.querySelector('#player1');
-    const player2outline = document.querySelector('#player2');
+    //audiotracts
+    const backgroundmusic = new Audio('audio/background.mp3');
+    const crash = new Audio('audio/crash.mp3');
+    const cutoff = new Audio('audio/cutoff.mp3');
+    const racesounds = new Audio('audio/racecar.mp3');
+    const refuelsounds = new Audio('audio/refuel.mp3');
+
 
     //these are the only important objects for my project.
     const gameData = {
         dice: ['1.png', '2.png', '3.png', 
             '4.png', '5.png', '6.png'],
-        players: ['player 1', 'player 2'],
+        players: ['Player 1', 'Player 2'],
         score: [0, 0],
         roll1: 0,
         roll2: 0,
@@ -43,14 +47,13 @@
         penaltyturn: [0,0] //gives a penalty
     };
 
-    if(gameData.penaltyturn[gameData.index]>0){
-        rolldice.style.display="none";
-        refuel.addEventListener('click', refueling)
-    }
-    else{
+
+        //adds border at the start of player 1s move
+        addBorder();
+        removeFuelbtn();
+
         rolldice.addEventListener('click', throwDice);
-        refuel.addEventListener('click', refueling)
-    }
+        refuel.addEventListener('click', refueling);
 
     //Creating an if statement to check if penalty is on
     //The second thing I need to do is to roll the dice
@@ -68,43 +71,60 @@
         gameData.rollSum = gameData.roll1 + gameData.roll2; 
 
         if (gameData.rollSum === 2) {
-            overlay.innerHTML = '<p>Oh no! You Rolled 2 ones. You ran out of fuel. Switching to player 2</p>';
 
+            crash.play();
             gameData.fuel[gameData.index] = 0;
 
-            handleOverlay();
             //set score for current player
 
-            document.querySelector(`#fuelbar${(gameData.index + 1)}`).style.maxWidth=`1vw`;
+            document.querySelector(`#fuelbar${(gameData.index + 1)}`).style.maxWidth=`0px`;
             handleFuelColor();
-            
+            addPenalty();
+            removeBorder();
+
             gameData.index ? (gameData.index = 0) : (gameData.index = 1); //switches the player
+            overlay.innerHTML = `<p>Oh no! You Rolled <span style="color: #ebeb0c;">2 ones</span>. You Crashed. Switching to <span style="color: #ebeb0c;">${gameData.players[gameData.index]}</span></p>`;
+            handleOverlay();
+            removeRollbtn();
+            removeFuelbtn();
+
         } //finished snake eyes section
 
         else if (gameData.roll1 === 1 || gameData.roll2 === 1 ){
-            overlay.innerHTML = `<p>You were cut off. -25% fuel. <br> ${gameData.players[gameData.index]}'s turn.</p>`;
+            
+            cutoff.play();
 
             //handles fuel
             gameData.fuel[gameData.index] = Math.floor((gameData.fuel[gameData.index])*0.75);
             document.querySelector(`#fuelbar${(gameData.index + 1)}`).style.maxWidth = `${gameData.fuel[gameData.index]}px`;
-            handleFuelColor();
 
-            handleOverlay();
+            handleFuelColor();
+            addPenalty();
+            removeBorder();
 
             gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+            overlay.innerHTML = `<p>You were cut off. <span style="color: #ebeb0c;">-25% fuel</span>. <br> <span style="color: #ebeb0c;">${gameData.players[gameData.index]}'s</span> turn.</p>`;
+            handleOverlay();
+            removeRollbtn();
+            removeFuelbtn();
+    
 
         } else if(gameData.rollSum === 12){
-            overlay.innerHTML = `<p>You hit a slip screen. -0% fuel. +50 laps. <br> take another turn</p>`;
+            racesounds.play();
+
+            overlay.innerHTML = `<p>You hit a slip screen. <span style="color: #ebeb0c;">-0% fuel</span>. <span style="color: #ebeb0c;">+50 laps</span>. <br> Take another turn</p>`;
             //score
             gameData.score[gameData.index] = gameData.score[gameData.index]+50;
             document.querySelector(`#lapplayer${gameData.index+1}`).innerHTML = gameData.score;
             //no loss of fuel
             handleOverlay();
             //no skip turn
+            removeRollbtn();
+            removeFuelbtn();
         }
         else{
-            //overlay
-            overlay.innerHTML = `<p>You Traveled ${gameData.rollSum*3} laps. -${gameData.rollSum} fuel. <br> ${gameData.players[gameData.index]}'s turn.</p>`;
+            racesounds.play();
+
             //score
             gameData.score[gameData.index] = gameData.score[gameData.index] + gameData.rollSum*3;
             document.querySelector(`#lapplayer${gameData.index+1}`).innerHTML = gameData.score[gameData.index];
@@ -113,14 +133,63 @@
             document.querySelector(`#fuelbar${(gameData.index + 1)}`).style.maxWidth = `${gameData.fuel[gameData.index]}px`;
 
             handleFuelColor();
-
-            handleOverlay();
+            addPenalty();
+            removeBorder();
 
             gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+            //overlay
+            overlay.innerHTML = `<p>You Traveled <span style="color: #ebeb0c;">${gameData.rollSum*3} laps</span>. <span style="color: #ebeb0c;">-${gameData.rollSum} fuel</span>. <br> <span style="color: #ebeb0c;">${gameData.players[gameData.index]}'s</span> turn.</p>`;
+            handleOverlay();
+            removeRollbtn();
+            removeFuelbtn();
 
-        } //end other fuel */
+        } //end else stament
 
-        function handleFuelColor(){
+        console.log(gameData.fuel);
+        // showCurrentScore();
+    } //end ThrowDice Function
+
+    function refueling(){
+        refuelsounds.play();
+        if(gameData.penaltyturn[gameData.index]>=1){
+            gameData.penaltyturn[gameData.index]--;
+
+            handleOverlay();
+            removeBorder();
+
+            gameData.index ? (gameData.index = 0) : (gameData.index = 1); //switches player
+            overlay.innerHTML = `<p>You are still refueling for <span style="color: #ebeb0c;">${gameData.penaltyturn[gameData.index] + 1} laps</span>. Switching to <span style="color: #ebeb0c;">${gameData.players[gameData.index]}</span>.</p>`;
+            handleOverlay();
+            removeRollbtn();
+            removeFuelbtn();
+
+        } else if(gameData.penaltyturn[gameData.index]<1){
+            overlay.innerHTML = `<p>You just refueled.</p>`;//sets overlay
+            const overlayPara = document.querySelector('#overlay p');
+
+            rolldice.style.display="block";
+            if(gameData.fuel[gameData.index]<50){
+                gameData.fuel[gameData.index] = gameData.fuel[gameData.index]+50;
+                overlayPara.innerHTML += `  <span style="color: #ebeb0c;">+50 fuel.</span>`;
+            } else{
+                gameData.fuel[gameData.index] =  100;
+                overlayPara.innerHTML += ' fuel at  <span style="color: #ebeb0c;">100%</span>.';
+            }
+
+            document.querySelector(`#fuelbar${(gameData.index + 1)}`).style.maxWidth = `${gameData.fuel[gameData.index]}px`;
+
+            handleFuelColor();
+            removeBorder();
+
+            gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+            overlayPara.innerHTML += ` Switching to <span style="color: #ebeb0c;">${gameData.players[gameData.index]}</span>`
+            handleOverlay();
+            removeRollbtn();
+            removeFuelbtn();
+        }
+    }
+
+    function handleFuelColor(){
         /*     if(gameData.index == 0 && gameData.fuel[gameData.index]<20){
                 document.querySelector(`#fuelbar1`).style.backgroundColor="#d32222";
             } 
@@ -153,34 +222,45 @@
             }
         } //end function fuel color
 
-        console.log(gameData.fuel);
-        // showCurrentScore();
-    } //end ThrowDice Function
-
-    function refueling(){
-        if(gameData.penaltyturn[gameData.index]>1){
-            gameData.penaltyturn--;
-            overlay.innerHTML = `<p>You are still refueling for ${gameData.penaltyturn[gameData.index]} laps</p>`;//sets overlay
-            handleOverlay();
-
-            gameData.index ? (gameData.index = 0) : (gameData.index = 1); //switches player
-        } else if(gameData.penaltyturn[gameData.index]>0){
-            gameData.penaltyturn--;
-            overlay.innerHTML = `<p>You are just refueled</p>`;//sets overlay
-            gameData.fuel = 100;
-            handleOverlay();
-
-            gameData.index ? (gameData.index = 0) : (gameData.index = 1);
-        }
-    }
-
     function handleOverlay(){
         overlay.style.display="flex";
         setTimeout(overlayOff, 4000);
-    }
+        setTimeout(addBorder, 4000);
+    } //ends the overlay timeout
 
     function overlayOff(){
         overlay.style.display= "none"
+    } //end turn off overlay function
+
+    function addPenalty(){
+        if(gameData.fuel[gameData.index] <= 0){
+            gameData.fuel[gameData.index] = 0;
+            gameData.penaltyturn[gameData.index] = 2;
+        } 
+    } //end add penalty function
+
+    function removeBorder(){
+        document.querySelector(`#player${gameData.index + 1}`).style.border="none";
+    } //end remove Border function
+
+    function addBorder(){
+        document.querySelector(`#player${gameData.index + 1}`).style.border = "5px solid #ebeb0c";
+    } //end add Border function
+
+    function removeRollbtn(){
+        if (gameData.penaltyturn[gameData.index] > 0 || gameData.fuel[gameData.index] == 0){
+            rolldice.style.display="none";
+        } else {
+            rolldice.style.display="block";
+        }
+    } //end remove Roll button Function
+
+    function removeFuelbtn(){
+        if (gameData.fuel[gameData.index] == 100){
+            refuel.style.display="none";
+        } else {
+            refuel.style.display="block";
+        }
     }
 
 

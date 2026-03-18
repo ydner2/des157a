@@ -226,6 +226,7 @@ body{
     top: 0;
     /* display: flex; */
     display: none;
+    flex-direction: column;
 }
 
 .overlay p{
@@ -234,6 +235,7 @@ body{
     font-family: Audiowide;
     font-size: 36px;
     margin: auto;
+    padding: 20px;
 }
 
 /* media! */
