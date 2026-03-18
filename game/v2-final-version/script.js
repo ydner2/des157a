@@ -19,6 +19,7 @@
     const actionArea = document.querySelector('#actions');
     //my variables
     const rolldice = document.querySelector('#rolldicebtn');
+    const refuel = document.querySelector('#refuelbtn');
     const dice1 = document.querySelector('#dicebox1');
     const dice2 = document.querySelector('#dicebox2');
     const overlay = document.querySelector('#overlay');
@@ -42,9 +43,16 @@
         penaltyturn: [0,0] //gives a penalty
     };
 
-    rolldice.addEventListener('click', throwDice);
+    if(gameData.penaltyturn[gameData.index]>0){
+        rolldice.style.display="none";
+        refuel.addEventListener('click', refueling)
+    }
+    else{
+        rolldice.addEventListener('click', throwDice);
+        refuel.addEventListener('click', refueling)
+    }
 
-    
+    //Creating an if statement to check if penalty is on
     //The second thing I need to do is to roll the dice
     function throwDice(){
         // actionArea.innerHTML = '';
@@ -148,6 +156,23 @@
         console.log(gameData.fuel);
         // showCurrentScore();
     } //end ThrowDice Function
+
+    function refueling(){
+        if(gameData.penaltyturn[gameData.index]>1){
+            gameData.penaltyturn--;
+            overlay.innerHTML = `<p>You are still refueling for ${gameData.penaltyturn[gameData.index]} laps</p>`;//sets overlay
+            handleOverlay();
+
+            gameData.index ? (gameData.index = 0) : (gameData.index = 1); //switches player
+        } else if(gameData.penaltyturn[gameData.index]>0){
+            gameData.penaltyturn--;
+            overlay.innerHTML = `<p>You are just refueled</p>`;//sets overlay
+            gameData.fuel = 100;
+            handleOverlay();
+
+            gameData.index ? (gameData.index = 0) : (gameData.index = 1);
+        }
+    }
 
     function handleOverlay(){
         overlay.style.display="flex";
