@@ -79,8 +79,8 @@
         //instead of adding to the game to make the outline I need to create a figure out which index it is and then highlight that index
 
         // game.innerHTML = `<p>Roll the dice for the ${gameData.players[gameData.index]}</p>`;
-        dice1.innerHTML = `<img src="images/dice${gameData.dice[gameData.roll1-1]}.png" srcset="images/dice${gameData.dice[gameData.roll1-1]}.png 600w, images/dice${gameData.dice[gameData.roll1-1]}desktop.png 1200w" alt="dice${gameData.dice[gameData.roll1-1]}">`;
-        dice2.innerHTML = `<img src="images/dice${gameData.dice[gameData.roll2-1]}.png" srcset="images/dice${gameData.dice[gameData.roll2-1]}.png 600w, images/dice${gameData.dice[gameData.roll2-1]}desktop.png 1200w" alt="dice${gameData.dice[gameData.roll2-1]}">`;
+        dice1.innerHTML = `<img class="dice" src="images/dice${gameData.dice[gameData.roll1-1]}.png" srcset="images/dice${gameData.dice[gameData.roll1-1]}.png 600w, images/dice${gameData.dice[gameData.roll1-1]}desktop.png 1200w" sizes="60px" alt="dice${gameData.dice[gameData.roll1-1]}">`;
+        dice2.innerHTML = `<img class="dice" src="images/dice${gameData.dice[gameData.roll2-1]}.png" srcset="images/dice${gameData.dice[gameData.roll2-1]}.png 600w, images/dice${gameData.dice[gameData.roll2-1]}desktop.png 1200w" sizes="60px" alt="dice${gameData.dice[gameData.roll2-1]}">`;
         gameData.rollSum = gameData.roll1 + gameData.roll2; 
 
         if (gameData.rollSum === 2) {

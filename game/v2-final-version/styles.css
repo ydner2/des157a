@@ -208,6 +208,7 @@ footer p a:hover{
 .dice{
     width: 60px;
     height: auto;
+    display: block;
 }
 
 /* placement */
