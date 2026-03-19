@@ -28,7 +28,7 @@
         <section class="player" id="player1">
             <div class="race">
                 <img class="racetrack" src="images/racetrack.jpg" srcset="images/racetrack.jpg 600w, images/racetrackdesktop.jpg 1200w" sizes="(min-width: 600px) 60vw, 100vw" alt="racetrack">
-                <img class="car" src="images/car1.png" alt="racecar">
+                <img class="car" id="car1" src="images/car1.png" srcset="images/car1.png 600w, images/car1desktop.png 1200w" alt="racecar1">
             </div>
 
             <section class="playerstats" id="player1stats">
@@ -46,7 +46,7 @@
         <section class="player" id="player2">
             <div class="race">
                 <img class="racetrack" src="images/racetrack.jpg" srcset="images/racetrack.jpg 600w, images/racetrackdesktop.jpg 1200w" sizes="(min-width: 600px) 60vw, 100vw" alt="racetrack">
-                <img class="car" src="images/car2.png" alt="racecar">
+                <img class="car" id="car2" src="images/car2.png" srcset="images/car2.png 600w, images/car2desktop.png 1200w" alt="racecar2">
             </div>
 
             <section class="playerstats" id="player2stats">
@@ -63,7 +63,26 @@
     </main>
 
     <section class="overlay" id="overlay">
-        <p>Player 1 Rolled 6 and 6 +25 Laps</p>
+        <section class="rules">
+            <h2>Rules</h2>
+            <h3>Rolling the dice</h3>
+            <ul>
+                <li>Rolls reduce fuel consumption by roll. Distance traveled is roll x3.</li>
+                <li>Rolling a two 1s reduces players fuel to zero and penalizes player for 3 turns</li>
+                <li>Rolling one 1 reduces players fuel by 25%</li>
+                <li>Rolling two 6s adds 50 laps and no fuel penalty</li>
+            </ul>
+            <h3>Refueling</h3>
+            <ul>
+                <li>Lossing all fuel penalizes players for 3 turns.</li>
+                <li>If fuel is less than 50% then players get 50 fuel.</li>
+                <li>If fuel is greater than 50% then players refuel to 100%.</li>
+                <li>Penalty turns add no fuel.</li>
+            </ul>
+        </section>
+        <section class="clickanywhere" id="clickhere">
+            <p>Click Here to start</p>
+        </section>
     </section>
 
     <!-- <footer>
@@ -79,9 +98,9 @@
 
     <!-- Chat GPT helped me reformat my code into a grid structure that would work with the figma design. Here is the reformated I will probably need to restructure stuff-->
 
-    <footer>
+    <section class="footer">
         <div class="dicebox" id="dicebox1">
-            <img src="images/dice1.png" alt="dice1" class="dice" id="dice1">
+            <img src="images/dice1.jpg" srcset="images/dice1.png 600w, images/dice1desktop.png 1200w" alt="dice">
         </div>
 
         <section class="buttonselection" id="gamecontrol">
@@ -90,13 +109,11 @@
         </section>
 
         <div class="dicebox" id="dicebox2">
-            <img src="images/dice2.png" alt="dice2" class="dice" id="dice2">
+            <img src="images/dice2.jpg" srcset="images/dice2.png 600w, images/dice1desktop.png 1200w" alt="dice">
         </div>
+    </section>
+    <footer>
+        <p><a href="sources.html">Sources</a></p>
     </footer>
-
-    <audio controls autoplay muted>
-    <source src="audio/background.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
 </body> 
 </html>

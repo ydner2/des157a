@@ -9,14 +9,7 @@
     //this controls the game and houses the start and quit buttons. This is not needed until later
     // const gameControl = document.querySelector('#gamecontrol');
 
-    //game houses the dice roll images. I will need another variable that houses the race track and data.
-    const game = document.querySelector('#game');
-
-    //score will be housed in data and also in the overlay.
-    const score = document.querySelector('#score');
-
-    //actions is another text area.
-    const actionArea = document.querySelector('#actions');
+    const clicksection = document.querySelector('#clickhere');
     //my variables
     const rolldice = document.querySelector('#rolldicebtn');
     const refuel = document.querySelector('#refuelbtn');
@@ -34,8 +27,8 @@
 
     //these are the only important objects for my project.
     const gameData = {
-        dice: ['1.png', '2.png', '3.png', 
-            '4.png', '5.png', '6.png'],
+        dice: ['1', '2', '3', 
+            '4', '5', '6'],
         players: ['Player 1', 'Player 2'],
         score: [0, 0],
         roll1: 0,
@@ -46,14 +39,34 @@
         fuel: [100,100], //fuel of car
         penaltyturn: [0,0] //gives a penalty
     };
-
+        
+        gameData.index=0; //sets game data to player 1 at the start.
 
         //adds border at the start of player 1s move
         addBorder();
         removeFuelbtn();
 
+        overlay.style.display= "flex";
+
+        clicksection.addEventListener('click', function(){
+           setUp();
+        })
+
         rolldice.addEventListener('click', throwDice);
         refuel.addEventListener('click', refueling);
+
+        window.addEventListener('resize', function(){ //chatGPT here helped me do some math and adjustments for making sure the car stays on track
+            moveCar(0);
+            moveCar(1);
+        });
+
+    function setUp(){
+         overlay.style.display= "none";
+            backgroundmusic.play();
+
+            rolldice.addEventListener('click', throwDice);
+            refuel.addEventListener('click', refueling);
+    }
 
     //Creating an if statement to check if penalty is on
     //The second thing I need to do is to roll the dice
@@ -66,8 +79,8 @@
         //instead of adding to the game to make the outline I need to create a figure out which index it is and then highlight that index
 
         // game.innerHTML = `<p>Roll the dice for the ${gameData.players[gameData.index]}</p>`;
-        dice1.innerHTML = `<img src="images/dice${gameData.dice[gameData.roll1-1]}">`;
-        dice2.innerHTML = `<img src="images/dice${gameData.dice[gameData.roll2-1]}">`;
+        dice1.innerHTML = `<img src="images/dice${gameData.dice[gameData.roll1-1]}.png" srcset="images/dice${gameData.dice[gameData.roll1-1]}.png 600w, images/dice${gameData.dice[gameData.roll1-1]}desktop.png 1200w" alt="dice${gameData.dice[gameData.roll1-1]}">`;
+        dice2.innerHTML = `<img src="images/dice${gameData.dice[gameData.roll2-1]}.png" srcset="images/dice${gameData.dice[gameData.roll2-1]}.png 600w, images/dice${gameData.dice[gameData.roll2-1]}desktop.png 1200w" alt="dice${gameData.dice[gameData.roll2-1]}">`;
         gameData.rollSum = gameData.roll1 + gameData.roll2; 
 
         if (gameData.rollSum === 2) {
@@ -112,12 +125,19 @@
         } else if(gameData.rollSum === 12){
             racesounds.play();
 
-            overlay.innerHTML = `<p>You hit a slip screen. <span style="color: #ebeb0c;">-0% fuel</span>. <span style="color: #ebeb0c;">+50 laps</span>. <br> Take another turn</p>`;
+            overlay.innerHTML = `<p>You hit a slip screen. <span style="color: #ebeb0c;">-0% fuel</span>. <span style="color: #ebeb0c;">+100 laps</span>. <br> Take another turn</p>`;
             //score
-            gameData.score[gameData.index] = gameData.score[gameData.index]+50;
-            document.querySelector(`#lapplayer${gameData.index+1}`).innerHTML = gameData.score;
+            gameData.score[gameData.index] = gameData.score[gameData.index]+100;
+            document.querySelector(`#lapplayer${gameData.index+1}`).innerHTML = gameData.score[gameData.index];
             //no loss of fuel
+
+            if (checkWinningConditions()) {
+                return;
+            }
+
             handleOverlay();
+            moveCar(gameData.index);
+            
             //no skip turn
             removeRollbtn();
             removeFuelbtn();
@@ -126,19 +146,24 @@
             racesounds.play();
 
             //score
-            gameData.score[gameData.index] = gameData.score[gameData.index] + gameData.rollSum*3;
+            gameData.score[gameData.index] = gameData.score[gameData.index] + gameData.rollSum*5;
             document.querySelector(`#lapplayer${gameData.index+1}`).innerHTML = gameData.score[gameData.index];
             //handles fuel
             gameData.fuel[gameData.index] = gameData.fuel[gameData.index]-gameData.rollSum;
             document.querySelector(`#fuelbar${(gameData.index + 1)}`).style.maxWidth = `${gameData.fuel[gameData.index]}px`;
 
+            if (checkWinningConditions()) {
+                return;
+            }
+
             handleFuelColor();
+            moveCar(gameData.index);
             addPenalty();
             removeBorder();
 
             gameData.index ? (gameData.index = 0) : (gameData.index = 1);
             //overlay
-            overlay.innerHTML = `<p>You Traveled <span style="color: #ebeb0c;">${gameData.rollSum*3} laps</span>. <span style="color: #ebeb0c;">-${gameData.rollSum} fuel</span>. <br> <span style="color: #ebeb0c;">${gameData.players[gameData.index]}'s</span> turn.</p>`;
+            overlay.innerHTML = `<p>You Traveled <span style="color: #ebeb0c;">${gameData.rollSum*5} laps</span>. <span style="color: #ebeb0c;">-${gameData.rollSum} fuel</span>. <br> <span style="color: #ebeb0c;">${gameData.players[gameData.index]}'s</span> turn.</p>`;
             handleOverlay();
             removeRollbtn();
             removeFuelbtn();
@@ -263,18 +288,39 @@
         }
     }
 
+    function checkWinningConditions(){
+        if(gameData.score[gameData.index] >= gameData.gameEnd){
+            overlay.innerHTML = `<p><span style="color: #ebeb0c;">${gameData.players[gameData.index]} Wins! </span></p> <section class="clickanywhere" id="secondclick"><p>Click Here to Play Again</p></section>`
+            overlay.style.display = "flex"
 
-    //The third thing I need to do is to make the pass work
+            backgroundmusic.pause();
+            backgroundmusic.currentTime = 0;
+            document.querySelector("#secondclick").addEventListener('click', function(){
+                setUp();
+            })
+            return true;
+        }
+        return false;
+    }
 
-    //I need to
+    function moveCar(playerIndex){
+    /*     document.querySelector(`#car${gameData.index + 1}`).style.left = `${gameData.score[gameData.index]/gameData.gameEnd}px`; */
 
+        //to get my moveCar thing to work here is a function from CHATGPT so that I do not have to do the exact calculations.
+        const car = document.querySelector(`#car${playerIndex + 1}`);
+        const race = car.parentElement; // the .race container
+        const currentScore = gameData.score[playerIndex];
 
+        const maxTrackDistance = race.offsetWidth - car.offsetWidth;
+        const progress = Math.min(currentScore / gameData.gameEnd, 1);
+        const carPosition = progress * maxTrackDistance;
+
+        car.style.left = `${carPosition}px`;
+    }
 
 
     //SIDE TASKS IF I HAVE TIME
     //I also need to add a quit button in the HTML and CSS
 
-    //I need to add something that handles the overly
-
-    //I will need a start button and design
+    //I will need a start button and design a starting screen.
 })();
