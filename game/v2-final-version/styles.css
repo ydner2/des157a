@@ -174,6 +174,26 @@ h1{
     align-items: center;
 }
 
+/* footer with the links at bottom */
+footer{
+    max-width: 1200px;
+    padding: 10px;
+    background-color: #d32222;
+    text-align: center;
+    border-top: 3px solid #EFF1F0;
+}
+
+footer p a{
+    text-decoration: none;
+    color:#EFF1F0;
+    font-family: sansation;
+    padding: 10px;
+}
+footer p a:hover{
+    text-decoration: none;
+    color:#020001;
+}
+
 /* dice background containers */
 
 .dicebox{
@@ -222,6 +242,7 @@ body{
     position: absolute;
     background: rgba(2, 0, 1, 0.83);
     width: 100vw;
+    max-width: 1200px;
     height: 100%;
     top: 0;
     /* display: flex; */
@@ -280,6 +301,33 @@ body{
 .overlay #clickhere:hover{
     background-color:#020001;
     cursor: pointer;
+}
+
+/* souces page */
+
+.sourcesection{
+    background-color: #020001;
+    max-width: 600px;
+    margin: 20px auto 20px auto;
+    padding: 20px;
+    border: 10px solid #009D62;
+}
+
+.sourcesection p{
+    padding: 10px;
+    font-family: sansation;
+    color: #EFF1F0;
+    font-size: 20px;
+}
+
+.sourcesection a{
+    text-decoration: none;
+    font-family: sansation;
+    color: #ebeb0c;
+}
+
+.sourcesection a:hover{
+    color: #009D62;
 }
 
 /* media! */
@@ -408,5 +456,4 @@ body{
     .player .race .car{
     width: 300px;
     }
-
 }
